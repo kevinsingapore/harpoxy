@@ -1,0 +1,19 @@
+version: "2"
+services:
+  haproxy:
+    image: haproxy:1.8
+    ports:
+      - 80:31380
+      - 443:31390
+      - 8181:8181
+    restart: always
+    volumes:
+      - /home/haproxy/haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg
+    network_mode: host
+ 
+#    networks:
+#    #    #    #      - haproxy_lb
+#    #    #
+#    #    #    #networks:
+#    #    #    #  haproxy_lb:
+#    #    #    #    driver: bridge
